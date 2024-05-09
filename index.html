@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milasso</title>
+    <title>Tonhasso</title>
     <style>
         html,
         body {
@@ -28,12 +28,26 @@
         .box {
             width: 200px;
             height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color:white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
         }
 
         #milasso {
             width: 200px;
             height: 300px;
-            object-fit: cover;
+            object-fit: contain;
+        }
+
+        #milasso2{
+            width: 200px;
+            height: 300px;
+            object-fit: contain;
+            display: none;
         }
 
         @keyframes changeBackgroundColor {
@@ -67,7 +81,11 @@
 
     <div class="container">
         <div class="box">
-            <img id="milasso" src="milasso.jpg" />
+
+            <span>Tonhão máximo</span>
+
+            <img id="milasso" onclick="mostrar()" src="camelo.jpg" />
+            <img id="milasso2" onclick="mostrar()" src="camelo2.jpg" />
         </div>
     </div>
 
@@ -79,6 +97,29 @@
         function contar() {
             contador++
             span.innerHTML = contador.toString()
+        }
+
+        const img = document.getElementById('milasso')
+        const img2 = document.getElementById('milasso2')
+
+        let img1Visible = true
+
+        function mostrar(){
+
+            if(img1Visible){
+                img.style.display = 'none'
+                img2.style.display = 'block'
+                img1Visible=false
+                return
+            }
+
+            if(!img1Visible){
+                img.style.display = 'block'
+                img2.style.display = 'none'
+                img1Visible=true
+                return
+            }
+
         }
 
     </script>
